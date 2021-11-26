@@ -7,7 +7,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 public class AirportsFlightApp {
     private static final String flightsFile = "FlightsTable.csv";
     private static final String airportsFile = "AirportsTable.csv";
-
+    private static final int INDEX_AIRPORT_NAME = 1;
 
     private static JavaRDD<String> removeHead(JavaRDD<String> str) {
         String header = str.first();
