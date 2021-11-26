@@ -2,8 +2,6 @@ package bmstu;
 
 import java.io.Serializable;
 
-import scala.annotation.meta.getter;
-
 public class Flight implements Serializable {
     private String destID;
     private double delay;
