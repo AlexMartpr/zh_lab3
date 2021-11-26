@@ -41,7 +41,7 @@ public class AirportsFlightApp {
             String airportName = col[INDEX_AIRPORT_NAME];
             String airportID = col[INDEX_AIRPORT_ID];
             return new Tuple2<>(airportID, airportName);
-        }).collectAsMap();
+        });
         
         final Broadcast<Map<String, String>> airportsBroadcast = sc.broadcast(airportsInfoMap);
 
