@@ -25,6 +25,8 @@ public class Flight implements Serializable {
         return this.delay;
     }
 
-    
+    public boolean getIsCannceled() {
+        return this.cancelled;
+    }
 
 }
