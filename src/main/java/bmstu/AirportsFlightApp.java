@@ -1,5 +1,7 @@
 package bmstu;
 
+import java.util.Collections;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -47,10 +49,8 @@ public class AirportsFlightApp {
             }
 
             Boolean cancelled;
-            try {
-                double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
-                cancelled = cancl == 1;
-            }
+            double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
+            cancelled = cancl == 1;
 
         });
 
