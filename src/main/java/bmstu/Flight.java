@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Flight implements Serializable {
     private String destID;
+    pr
     private double delay;
     private boolean cancelled;
 
