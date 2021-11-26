@@ -37,7 +37,7 @@ public class AirportsFlightApp {
         inputAirportsFile = removeHead(inputAirportsFile);
 
         JavaPairRDD<String, String> airportsInfoMap = inputAirportsFile.mapToPair(row -> {
-            String[] col = row.split(",");
+            String[] col = row.split(DELIMITER);
             String airportName = col[INDEX_AIRPORT_NAME];
             String airportID = col[INDEX_AIRPORT_ID];
             return new Tuple2<>(airportID, airportName);
@@ -57,8 +57,12 @@ public class AirportsFlightApp {
             }
 
             Boolean cancelled;
-            double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
-            cancelled = cancl == 1;
+            try {
+                double cancl = Double.parseDouble(col[INDEX_DELAY]);
+                cancelled = cancl == 1;
+            } catch (NumberFormatException e) {
+                cancelled = true;
+            }
 
             Tuple2<String, String> result = new Tuple2<>(originID, destinationID);
             Flight currentFlight = new Flight(delay, cancelled);
