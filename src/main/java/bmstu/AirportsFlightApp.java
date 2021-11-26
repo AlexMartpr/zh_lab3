@@ -1,9 +1,5 @@
 package bmstu;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
-
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -11,6 +7,10 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 
 import scala.Tuple2;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
 
 public class AirportsFlightApp {
     private static final String FLIGHTS_FILE = "FlightsTable.csv";
