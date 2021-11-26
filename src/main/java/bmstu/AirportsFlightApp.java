@@ -15,6 +15,7 @@ import scala.Tuple2;
 public class AirportsFlightApp {
     private static final String flightsFile = "FlightsTable.csv";
     private static final String airportsFile = "AirportsTable.csv";
+    private static final String PATH = "output";
     private static final int INDEX_AIRPORT_ID = 0;
     private static final int INDEX_AIRPORT_NAME = 1;
     private static final int INDEX_ORIGIN_ID = 11;
@@ -63,7 +64,7 @@ public class AirportsFlightApp {
             Flight currentFlight = new Flight(delay, cancelled);
             return new Tuple2<>(result, currentFlight); 
 
-        })
+        });
         .groupByKey()
         .mapValues(val -> {
             Iterator<Flight> it = val.iterator();
@@ -86,10 +87,11 @@ public class AirportsFlightApp {
             }
             double delayedAndCancelledFlightsInPercents = ((countDelayedFlights + countCancelledFlights) / countFlights) * 100;
             String result = "MaxDelay: " + maxDelay + "\n" + "Delayed and cancelled flights in %: " + delayedAndCancelledFlightsInPercents + "%\n";
-            
-        });
-        
-
-
+            return result;
+        })
+        .map(val -> {
+            return "From " + airportsBroadcast.value().get(val._1._1) + " To " + airportsBroadcast.value().get(val._1._2) + "\n";
+        })
+        .saveAsTextFile(PATH);
     }
 }
