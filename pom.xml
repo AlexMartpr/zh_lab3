@@ -38,5 +38,9 @@
                 </configuration>
             </plugin>
         </plugins>
+        <defaultGoal>compile</defaultGoal>
+        <sourceDirectory>src</sourceDirectory>
+        <outputDirectory>bin</outputDirectory>
+        <finalName>${project.artifactId}</finalName>
     </build>
 </project>
