@@ -41,10 +41,11 @@ public class AirportsFlightApp {
             String destinationID = col[INDEX_DESTINATION_ID];
             Double delay;
             try {
-
+                delay = Double.parseDouble(col[INDEX_DELAY]);
             } catch (NumberFormatException e) {
-
+                delay = 0.0;
             }
+
             Double checkDelay = Double.parseDouble(col[INDEX_DELAY]);
 
         });
