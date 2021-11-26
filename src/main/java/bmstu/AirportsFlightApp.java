@@ -10,6 +10,7 @@ public class AirportsFlightApp {
     private static final int INDEX_AIRPORT_ID = 0;
     private static final int INDEX_AIRPORT_NAME = 1;
 
+
     private static JavaRDD<String> removeHead(JavaRDD<String> str) {
         String header = str.first();
         return str.filter(s -> !s.equals(header));
@@ -24,7 +25,7 @@ public class AirportsFlightApp {
 
         JavaPairRDD<String, String> airportsInfo = inputAirportsFile.mapToPair(row -> {
             String[] col = row.split(",");
-            String airportName = 
+            String airportName = col[INDEX_AIRPORT_NAME];
         })
 
 
