@@ -87,6 +87,7 @@ public class AirportsFlightApp {
             double delayedFlightsInPercents = (countDelayedFlights / countFlights) * 100;
             double cancelledFlightsInPercents = (countCancelledFlights / countFlights) * 100;
             String result = "MaxDelay: " + maxDelay + "\n" + "DelayedFlights: " + delayedFlightsInPercents + "\n" + "CancelledFlights: " + cancelledFlightsInPercents + "\n";
+            
         });
         
 
