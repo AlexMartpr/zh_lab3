@@ -20,7 +20,9 @@ public class AirportsFlightApp {
         inputFlightsFile = removeHead(inputFlightsFile);
         inputAirportsFile = removeHead(inputAirportsFile);
 
-        JavaPairRDD<String, String> airportsInfo = inputAirportsFile.mapToPair(row )
+        JavaPairRDD<String, String> airportsInfo = inputAirportsFile.mapToPair(row -> {
+            String[] col = str.split(",");
+        })
 
 
     }
