@@ -78,7 +78,14 @@ public class AirportsFlightApp {
                     maxDelay = Double.max(maxDelay, checkDelay);
                     countDelayedFlights++;
                 }
+                boolean checkCancelled = current.getIsCannceled();
+                if (checkCancelled) {
+                    countCancelledFlights++;
+                }
+                countFlights++;
             }
+            double inPercents = (countDelayedFlights / countFlights) * 100;
+            String result = "";
         });
         
 
