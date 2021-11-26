@@ -7,7 +7,7 @@ public class Flight implements Serializable {
     private double delay;
     private boolean cancelled;
 
-    public Flight(String dID, String del, String cancl) {
+    public Flight(String dID, Double del, Boolean cancl) {
         this.destID = dID;
         this.delay = del;
         this.cancelled = cancl;
