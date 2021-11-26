@@ -15,7 +15,7 @@ import scala.Tuple2;
 public class AirportsFlightApp {
     private static final String FLIGHTS_FILE = "FlightsTable.csv";
     private static final String AIRPORTS_FILE = "AirportsTable.csv";
-    private static final String PATH = "output";
+    private static final String PATH = "hdfs://localhost:9000/user/alexey/output";
     private static final String DELIMITER = ",";
     private static final int INDEX_AIRPORT_ID = 0;
     private static final int INDEX_AIRPORT_NAME = 1;
