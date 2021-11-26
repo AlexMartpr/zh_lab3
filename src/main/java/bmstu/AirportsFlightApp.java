@@ -36,14 +36,14 @@ public class AirportsFlightApp {
         inputFlightsFile = removeHead(inputFlightsFile);
         inputAirportsFile = removeHead(inputAirportsFile);
 
-        Map<String, String> airportsInfoMap = inputAirportsFile.mapToPair(row -> {
+        JavaPairRDD<String, String> airportsInfoMap = inputAirportsFile.mapToPair(row -> {
             String[] col = row.split(",");
             String airportName = col[INDEX_AIRPORT_NAME];
             String airportID = col[INDEX_AIRPORT_ID];
             return new Tuple2<>(airportID, airportName);
         });
         
-        final Broadcast<Map<String, String>> airportsBroadcast = sc.broadcast(airportsInfoMap);
+        final Broadcast<Map<String, String>> airportsBroadcast = sc.broadcast(airportsInfoMap.collectAsMap());
 
         JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
             String[] col = row.split(DELIMITER);
