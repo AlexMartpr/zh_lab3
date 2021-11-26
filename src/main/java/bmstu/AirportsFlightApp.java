@@ -5,8 +5,9 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
 public class AirportsFlightApp {
-    private static String flightsFile = "FlightsTable.csv";
+    private static final String flightsFile = "FlightsTable.csv";
     private static String airportsFile = "AirportsTable.csv";
+
 
     private static JavaRDD<String> removeHead(JavaRDD<String> str) {
         String header = str.first();
@@ -22,6 +23,7 @@ public class AirportsFlightApp {
 
         JavaPairRDD<String, String> airportsInfo = inputAirportsFile.mapToPair(row -> {
             String[] col = row.split(",");
+            String airportName = 
         })
 
 
