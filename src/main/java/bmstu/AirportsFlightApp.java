@@ -31,8 +31,8 @@ public class AirportsFlightApp {
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("AirportsFlightApp");
         JavaSparkContext sc = new JavaSparkContext(conf);
-        JavaRDD<String> inputFlightsFile = sc.textFile(flightsFile);
-        JavaRDD<String> inputAirportsFile = sc.textFile(airportsFile);
+        JavaRDD<String> inputFlightsFile = sc.textFile(FLIGHTS_FILE);
+        JavaRDD<String> inputAirportsFile = sc.textFile(AIRPORTS_FILE);
         inputFlightsFile = removeHead(inputFlightsFile);
         inputAirportsFile = removeHead(inputAirportsFile);
 
