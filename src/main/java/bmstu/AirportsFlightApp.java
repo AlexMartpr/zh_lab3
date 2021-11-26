@@ -8,7 +8,6 @@ import org.apache.spark.broadcast.Broadcast;
 
 import scala.Tuple2;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 
