@@ -16,7 +16,7 @@ public class AirportsFlightApp {
     private static final String airportsFile = "AirportsTable.csv";
     private static final int INDEX_AIRPORT_ID = 0;
     private static final int INDEX_AIRPORT_NAME = 1;
-    private static final int INDEX_ORIGIN = 11;
+    private static final int INDEX_ORIGIN_ID = 11;
     private static final int INDEX_DESTINATION_ID = 14;
     private static final int INDEX_DELAY = 18;
     private static final int INDEX_CANCELLED = 19;
@@ -46,6 +46,7 @@ public class AirportsFlightApp {
         JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
             String[] col = row.split(",");
             String destinationID = col[INDEX_DESTINATION_ID];
+            String originID = col[INDEX_ORIGIN];
             Double delay;
             try {
                 delay = Double.parseDouble(col[INDEX_DELAY]);
@@ -57,7 +58,7 @@ public class AirportsFlightApp {
             double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
             cancelled = cancl == 1;
 
-            Pair<Tuple2<String, String>, Flight> result = new Tuple2<>()
+            Tuple2<String, String> result = new Tuple2<>() 
 
         });
 
