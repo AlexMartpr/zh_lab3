@@ -20,7 +20,7 @@ public class AirportsFlightApp {
         inputFlightsFile = removeHead(inputFlightsFile);
         inputAirportsFile = removeHead(inputAirportsFile);
 
-        JavaPairRDD<String, String> airportsInfo = inputAirportsFile.
+        JavaPairRDD<String, String> airportsInfo = inputAirportsFile
 
 
     }
