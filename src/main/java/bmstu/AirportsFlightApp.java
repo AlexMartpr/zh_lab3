@@ -85,7 +85,7 @@ public class AirportsFlightApp {
                 countFlights++;
             }
             double inPercents = (countDelayedFlights / countFlights) * 100;
-            String result = "";
+            String result = ;
         });
         
 
