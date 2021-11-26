@@ -6,7 +6,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 
 public class AirportsFlightApp {
     private static final String flightsFile = "FlightsTable.csv";
-    private static String airportsFile = "AirportsTable.csv";
+    private static final String airportsFile = "AirportsTable.csv";
 
 
     private static JavaRDD<String> removeHead(JavaRDD<String> str) {
