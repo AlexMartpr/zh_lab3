@@ -1,6 +1,7 @@
 package bmstu;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.spark.SparkConf;
@@ -46,7 +47,7 @@ public class AirportsFlightApp {
         JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
             String[] col = row.split(",");
             String destinationID = col[INDEX_DESTINATION_ID];
-            String originID = col[INDEX_ORIGIN];
+            String originID = col[INDEX_ORIGIN_ID];
             Double delay;
             try {
                 delay = Double.parseDouble(col[INDEX_DELAY]);
@@ -58,9 +59,18 @@ public class AirportsFlightApp {
             double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
             cancelled = cancl == 1;
 
-            Tuple2<String, String> result = new Tuple2<>() 
+            Tuple2<String, String> result = new Tuple2<>(originID, destinationID);
+            Flight currentFlight = new Flight(delay, cancelled);
+            return new Tuple2<>(result, currentFlight); 
 
+        })
+        .groupByKey()
+        .mapValues(val -> {
+            Iterator<Flight> it = val.iterator();
+            
         });
+        
+
 
     }
 }
