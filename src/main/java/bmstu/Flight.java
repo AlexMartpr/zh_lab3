@@ -12,4 +12,6 @@ public class Flight implements Serializable {
         this.delay = del;
         this.cancelled = cancl;
     }
+
+    public Flight() {};
 }
