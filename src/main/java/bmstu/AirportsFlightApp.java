@@ -46,7 +46,6 @@ public class AirportsFlightApp {
                 delay = 0.0;
             }
 
-            Double checkDelay = Double.parseDouble(col[INDEX_DELAY]);
 
         });
 
