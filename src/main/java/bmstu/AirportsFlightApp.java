@@ -67,7 +67,18 @@ public class AirportsFlightApp {
         .groupByKey()
         .mapValues(val -> {
             Iterator<Flight> it = val.iterator();
-            
+            double maxDelay = Double.MIN_VALUE;
+            int countCancelledFlights = 0;
+            int countDelayedFlights = 0;
+            int countFlights = 0;
+            while (it.hasNext()) {
+                Flight current = it.next();
+                double checkDelay = current.getDelay();
+                if (checkDelay > 0) {
+                    maxDelay = Double.max(maxDelay, checkDelay);
+                    countDelayedFlights++;
+                }
+            }
         });
         
 
