@@ -65,7 +65,7 @@ public class AirportsFlightApp {
             return new Tuple2<>(result, currentFlight); 
 
         });
-        .groupByKey()
+        flightsInfo.groupByKey()
         .mapValues(val -> {
             Iterator<Flight> it = val.iterator();
             double maxDelay = Double.MIN_VALUE;
