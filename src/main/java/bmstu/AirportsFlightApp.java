@@ -12,6 +12,9 @@ public class AirportsFlightApp {
     private static final String airportsFile = "AirportsTable.csv";
     private static final int INDEX_AIRPORT_ID = 0;
     private static final int INDEX_AIRPORT_NAME = 1;
+    private static final int INDEX_DESTINATION_ID = 14;
+    private static final int INDEX_DELAY = 18;
+    private static final int INDEX_CANCELLED = 19;
 
 
     private static JavaRDD<String> removeHead(JavaRDD<String> str) {
@@ -35,7 +38,15 @@ public class AirportsFlightApp {
         
         JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
             String[] col = row.split(",");
-            
+            String destinationID = col[INDEX_DESTINATION_ID];
+            Double delay;
+            try {
+
+            } catch (NumberFormatException e) {
+
+            }
+            Double checkDelay = Double.parseDouble(col[INDEX_DELAY]);
+
         });
 
     }
