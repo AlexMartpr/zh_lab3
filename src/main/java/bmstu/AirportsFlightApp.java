@@ -58,7 +58,7 @@ public class AirportsFlightApp {
 
             Boolean cancelled;
             try {
-                double cancl = Double.parseDouble(col[INDEX_DELAY]);
+                double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
                 cancelled = cancl == 1;
             } catch (NumberFormatException e) {
                 cancelled = true;
