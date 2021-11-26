@@ -16,6 +16,7 @@ public class AirportsFlightApp {
     private static final String FLIGHTS_FILE = "FlightsTable.csv";
     private static final String AIRPORTS_FILE = "AirportsTable.csv";
     private static final String PATH = "output";
+    private static final String DELIMITER = ",";
     private static final int INDEX_AIRPORT_ID = 0;
     private static final int INDEX_AIRPORT_NAME = 1;
     private static final int INDEX_ORIGIN_ID = 11;
@@ -46,7 +47,7 @@ public class AirportsFlightApp {
         final Broadcast<Map<String, String>> airportsBroadcast = sc.broadcast(airportsInfoMap);
 
         JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
-            String[] col = row.split(",");
+            String[] col = row.split(DELIMITER);
             String destinationID = col[INDEX_DESTINATION_ID];
             String originID = col[INDEX_ORIGIN_ID];
             Double delay;
