@@ -14,6 +14,7 @@ public class AirportsFlightApp {
     private static final String airportsFile = "AirportsTable.csv";
     private static final int INDEX_AIRPORT_ID = 0;
     private static final int INDEX_AIRPORT_NAME = 1;
+    private static final int INDEX_ORIGIN = 11;
     private static final int INDEX_DESTINATION_ID = 14;
     private static final int INDEX_DELAY = 18;
     private static final int INDEX_CANCELLED = 19;
@@ -51,6 +52,8 @@ public class AirportsFlightApp {
             Boolean cancelled;
             double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
             cancelled = cancl == 1;
+
+            Tuple2<> result = new Tuple2<>()
 
         });
 
