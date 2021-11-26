@@ -33,8 +33,8 @@ public class AirportsFlightApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
         JavaRDD<String> inputFlightsFile = sc.textFile(FLIGHTS_FILE);
         JavaRDD<String> inputAirportsFile = sc.textFile(AIRPORTS_FILE);
-        inputFlightsFile = removeHead(inputFlightsFile);
-        inputAirportsFile = removeHead(inputAirportsFile);
+        //inputFlightsFile = removeHead(inputFlightsFile);
+        //inputAirportsFile = removeHead(inputAirportsFile);
 
         JavaPairRDD<String, String> airportsInfoMap = inputAirportsFile.mapToPair(row -> {
             String[] col = row.split(DELIMITER);
