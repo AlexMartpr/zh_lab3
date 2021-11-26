@@ -5,6 +5,8 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
+import scala.Tuple2;
+
 public class AirportsFlightApp {
     private static final String flightsFile = "FlightsTable.csv";
     private static final String airportsFile = "AirportsTable.csv";
@@ -30,7 +32,10 @@ public class AirportsFlightApp {
             String airportID = col[INDEX_AIRPORT_ID];
             return new Tuple2<>(airportID, airportName);
         });
+        
+        JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
 
+        });
 
     }
 }
