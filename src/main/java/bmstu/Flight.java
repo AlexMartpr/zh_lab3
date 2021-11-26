@@ -10,6 +10,7 @@ public class Flight implements Serializable {
 
     public Flight(String dID, String oID,  Double del, Boolean cancl) {
         this.destID = dID;
+        this.originID = oID;
         this.delay = del;
         this.cancelled = cancl;
     }
