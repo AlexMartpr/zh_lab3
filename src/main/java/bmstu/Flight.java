@@ -21,8 +21,8 @@ public class Flight implements Serializable {
         return this.destID;
     }
 
-    public String getOriginID() {
-        return this.originID;
+    public String getOriginName() {
+        return this.originName;
     }
 
     public double getDelay() {
