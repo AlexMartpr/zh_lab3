@@ -28,7 +28,7 @@ public class AirportsFlightApp {
             String[] col = row.split(",");
             String airportName = col[INDEX_AIRPORT_NAME];
             String airportID = col[INDEX_AIRPORT_ID];
-
+            return new Tuple2<>(airportID, airportName);
         });
 
 
