@@ -21,4 +21,10 @@ public class Flight implements Serializable {
         return this.destID;
     }
 
+    public double getDelay() {
+        return this.delay;
+    }
+
+    
+
 }
