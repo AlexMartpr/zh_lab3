@@ -46,6 +46,11 @@ public class AirportsFlightApp {
                 delay = 0.0;
             }
 
+            Boolean cancelled;
+            try {
+                double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
+                cancelled = cancl == 1;
+            }
 
         });
 
