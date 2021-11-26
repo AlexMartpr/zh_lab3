@@ -1,11 +1,13 @@
 package bmstu;
 
 import java.util.Collections;
+import java.util.Map;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 
 import scala.Tuple2;
 
@@ -32,13 +34,15 @@ public class AirportsFlightApp {
         inputFlightsFile = removeHead(inputFlightsFile);
         inputAirportsFile = removeHead(inputAirportsFile);
 
-        JavaPairRDD<String, String> airportsInfo = inputAirportsFile.mapToPair(row -> {
+        Map<String, String> airportsInfoMap = inputAirportsFile.mapToPair(row -> {
             String[] col = row.split(",");
             String airportName = col[INDEX_AIRPORT_NAME];
             String airportID = col[INDEX_AIRPORT_ID];
             return new Tuple2<>(airportID, airportName);
-        });
+        }).collectAsMap();
         
+        final Broadcast<Map<String, String>> airportsBroadcast = sc.broadcast(airportsInfoMap);
+
         JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
             String[] col = row.split(",");
             String destinationID = col[INDEX_DESTINATION_ID];
@@ -53,7 +57,7 @@ public class AirportsFlightApp {
             double cancl = Double.parseDouble(col[INDEX_CANCELLED]);
             cancelled = cancl == 1;
 
-            Tuple2<> result = new Tuple2<>()
+            Pair<Tuple2<String, String>, Flight> result = new Tuple2<>()
 
         });
 
