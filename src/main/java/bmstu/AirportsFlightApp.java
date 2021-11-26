@@ -34,7 +34,8 @@ public class AirportsFlightApp {
         });
         
         JavaPairRDD<Tuple2<String, String>, Flight> flightsInfo = inputFlightsFile.mapToPair(row -> {
-
+            String[] col = row.split(",");
+            
         });
 
     }
